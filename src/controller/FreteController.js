@@ -1,0 +1,51 @@
+import axios from "axios";
+
+async function calcularFrete(req, res) {
+    const via1 = await fetch(`https://viacep.com.br/ws/${req.params.cep1}/json/`);
+    const remetente = await via1.json();
+
+    const via2 = await fetch(`https://viacep.com.br/ws/${req.params.cep2}/json/`);
+    const destinatario = await via2.json();
+
+    const endereco1 = `${remetente.logradouro}, ${remetente.bairro}, ${remetente.localidade}, Brasil`;
+    const endereco2 = `${destinatario.logradouro}, ${destinatario.bairro}, ${destinatario.localidade}, Brasil`;
+
+    const urlRemetente = `https://api.opencagedata.com/geocode/v1/json?q=${encodeURIComponent(endereco1)}&key=${process.env.API_KEY}&language=pt&countrycode=br`;
+    const urlDestinatario = `https://api.opencagedata.com/geocode/v1/json?q=${encodeURIComponent(endereco2)}&key=${process.env.API_KEY}&language=pt&countrycode=br`;
+
+    try {
+        const response1 = await axios.get(urlRemetente);
+        const response2 = await axios.get(urlDestinatario);
+        const locRemetente = response1.data.results[0];
+        const locDestinatario = response2.data.results[0];
+
+        if (locRemetente && locDestinatario) {
+            const lat1 = locRemetente.geometry.lat;
+            const lon1 = locRemetente.geometry.lng;
+            const lat2 = locDestinatario.geometry.lat;
+            const lon2 = locDestinatario.geometry.lng;
+
+            const Raio = 6371;
+            const dLat = (lat2 - lat1) * Math.PI / 180;
+            const dLon = (lon2 - lon1) * Math.PI / 180;
+
+            const a =
+                Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+                Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) *
+                Math.sin(dLon / 2) * Math.sin(dLon / 2);
+
+            const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+            const distancia = Raio * c;
+
+            res.send(distancia.toFixed(1));
+
+        } else {
+            return null;
+        }
+    } catch (error) {
+        console.error('Erro na API:', error.message);
+        return null;
+    }
+}
+
+export default { calcularFrete };
