@@ -6,6 +6,7 @@ API desenvolvida em NODE.JS para a administração e coleta de dados de uma tran
 
 ## 📁 Estrutura do Projeto
 
+```bash
 transportadora/
 ├── src/                    # Código fonte da aplicação
 │   ├── controllers/        # Controladores da API
@@ -16,6 +17,7 @@ transportadora/
 ├── index.js                # Index contendo rotas da API
 ├── package.json            # Bibliotecas utilizadas
 └── server.js               # Conexão com o banco de dados
+```
 
 
 ## 📥 Configurando Banco
@@ -40,6 +42,8 @@ cd transportadora
 
 2. Configure o .env com suas informações:
 
+Crie um arquivo na pasta raiz do projeto com o nome **.env** com as seguinte informações:
+
 ```env
 PORT=5000                   # Insira a porta aqui, por padrão, é usada a 5000
 DB_HOST=localhost           # Insira o Host
@@ -49,6 +53,8 @@ DB_USER=postgres            # Insira o seu user do banco
 DB_PASSWORD=suasenha        # Insira a sua senha do banco
 DB_DIALECT=postgres         # Insira o seu dialect do banco
 ```
+
+**OBS:** CERTIFIQUE-SE QUE AS INFORMAÇÕES ACIMA CONFEREM COM SUAS CONFIGURAÇÕES!
 
 3. Instale as dependências
 
