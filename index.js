@@ -51,11 +51,6 @@ app.get('/endereco/:id', endereco.select);
 app.put('/endereco/:id', endereco.update);
 app.delete('/endereco/:id', endereco.del);
 
-app.get('/frete', frete.list);
-app.post('/frete', frete.create);
-app.get('/frete/:id', frete.select);
-app.put('/frete/:id', frete.update);
-app.delete('/frete/:id', frete.del);
 app.get('/frete/:cep1/:cep2', frete.calcularFrete);
 
 app.get('/motorista', motorista.list);

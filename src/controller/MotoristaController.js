@@ -1,18 +1,18 @@
-import Frete from "../model/FreteModel.js";
+import Motorista from "../model/MotoristaModel.js";
 
 async function list(req, res) {
-    const response = await Frete.findAll();
+    const response = await Motorista.findAll();
     res.json(response);
 }
 
 async function select(req, res) {
     const id = req.params.id;
-    const response = await Frete.findByPk(id);
+    const response = await Motorista.findByPk(id);
     res.json(response);
 }
 
 async function create(req, res) {
-    const response = await Frete.create(req.body);
+    const response = await Motorista.create(req.body);
     res.json(response);
 }
 
@@ -35,7 +35,7 @@ async function update(req, res) {
 async function del(req, res) {
     const motorista_id = req.params.id;
     
-    const response = await Frete.destroy({where: {motorista_id}});
+    const response = await Motorista.destroy({where: {motorista_id}});
     res.json(`Linhas alteradas: ${response}`);
 }
 
