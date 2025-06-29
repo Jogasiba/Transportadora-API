@@ -10,8 +10,8 @@ async function calcularFrete(req, res) {
     const endereco1 = `${remetente.logradouro}, ${remetente.bairro}, ${remetente.localidade}, Brasil`;
     const endereco2 = `${destinatario.logradouro}, ${destinatario.bairro}, ${destinatario.localidade}, Brasil`;
 
-    const urlRemetente = `https://api.opencagedata.com/geocode/v1/json?q=${encodeURIComponent(endereco1)}&key=${process.env.API_KEY}&language=pt&countrycode=br`;
-    const urlDestinatario = `https://api.opencagedata.com/geocode/v1/json?q=${encodeURIComponent(endereco2)}&key=${process.env.API_KEY}&language=pt&countrycode=br`;
+    const urlRemetente = `https://api.opencagedata.com/geocode/v1/json?q=${encodeURIComponent(endereco1)}&key=5ce09e25560a4a94829eaa719071dfd7&language=pt&countrycode=br`;
+    const urlDestinatario = `https://api.opencagedata.com/geocode/v1/json?q=${encodeURIComponent(endereco2)}&key=5ce09e25560a4a94829eaa719071dfd7&language=pt&countrycode=br`;
 
     try {
         const response1 = await axios.get(urlRemetente);

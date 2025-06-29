@@ -7,7 +7,7 @@ API desenvolvida em NODE.JS para a administração e coleta de dados de uma tran
 ## 📁 Estrutura do Projeto
 
 ```bash
-transportadora/
+Transportadora-API/
 ├── src/                    # Código fonte da aplicação
 │   ├── controllers/        # Controladores da API
 │   └── models/             # Modelos do Sequelize
@@ -24,10 +24,12 @@ transportadora/
 
 1. Abra o **PgAdmin4** no seu pc
 
-2. Faça o backup do arquivo:
+2. Crie um novo banco de dados
+
+3. Faça o backup do banco:
 
 ```bash
-./banco.sql
+/.banco.sql
 ```
 
 
@@ -37,7 +39,8 @@ transportadora/
 
 ```bash
 git clone https://github.com/Jogasiba/Transportadora-API
-cd transportadora
+cd Transportadora-API
+code .
 ```
 
 2. Configure o .env com suas informações:
@@ -45,13 +48,13 @@ cd transportadora
 Crie um arquivo na pasta raiz do projeto com o nome **.env** com as seguinte informações:
 
 ```env
-PORT=5000                   # Insira a porta aqui, por padrão, é usada a 5000
-DB_HOST=localhost           # Insira o Host
-DB_PORT=5432                # Insira a porta do banco (para Postgres: 5432)
-DB_NAME=Transportadora      # Insira o nome do banco criado
-DB_USER=postgres            # Insira o seu user do banco
-DB_PASSWORD=suasenha        # Insira a sua senha do banco
-DB_DIALECT=postgres         # Insira o seu dialect do banco
+API_PORT=5000                   # Insira a porta aqui, por padrão, é usada a 5000
+DB_HOST=localhost               # Insira o Host
+DB_PORT=5432                    # Insira a porta do banco (para Postgres: 5432)
+DB_NAME=nomedobancocriado       # Insira o nome do banco criado
+DB_USER=postgres                # Insira o seu user do banco
+DB_PASSWORD=suasenha            # Insira a sua senha do banco
+DB_DIALECT=postgres             # Insira o seu dialect do banco
 ```
 
 **OBS:** CERTIFIQUE-SE QUE AS INFORMAÇÕES ACIMA CONFEREM COM SUAS CONFIGURAÇÕES!
