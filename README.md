@@ -71,6 +71,12 @@ npm install
 npm start
 ```
 
+5. Utilize a API
+
+```bash
+http://localhost:{suaporta}/{rotadesejada}
+```
+
 
 ## 💻 Métodos de uso
 
