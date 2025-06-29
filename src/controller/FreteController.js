@@ -37,7 +37,9 @@ async function calcularFrete(req, res) {
             const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
             const distancia = Raio * c;
 
-            res.send(distancia.toFixed(1));
+            const valor = Math.round((distancia * 7) / 20)
+
+            res.send(valor);
 
         } else {
             return null;
