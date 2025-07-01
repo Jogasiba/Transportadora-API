@@ -39,7 +39,13 @@ Transportadora-API/
 
 ```bash
 git clone https://github.com/Jogasiba/Transportadora-API
+```
+
+```bash
 cd Transportadora-API
+```
+
+```bash
 code .
 ```
 
