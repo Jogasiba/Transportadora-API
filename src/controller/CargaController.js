@@ -1,4 +1,5 @@
 import Carga from "../model/CargaModel.js";
+import axios from "axios";
 
 async function list(req, res) {
     const response = await Carga.findAll();
@@ -36,14 +37,14 @@ async function update(req, res) {
     const peso = req.body.peso;
     const tipo_carga = req.body.tipo_carga;
     const status = req.body.status;
-    const email_cliente = req.body.email_cliente;
+    // const email_cliente = req.body.email_cliente;
     const cliente_id = req.body.cliente_id;
     const endereco_id = req.body.status;
 
     const carga_id = req.params.id;
 
     const response = await Carga.update(
-        { tipo_carga, origem, destino, peso, status, email_cliente, cliente_id, endereco_id },
+        { tipo_carga, origem, destino, peso, status, cliente_id, endereco_id },
         { where: { carga_id } }
     );
     res.json(`Linhas alteradas: ${response}`);

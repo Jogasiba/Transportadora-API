@@ -1,3 +1,4 @@
+import { where } from "sequelize";
 import Cliente from "../model/ClienteModel.js";
 
 async function list(req, res) {
@@ -38,4 +39,11 @@ async function del(req, res) {
     res.json(`Linhas alteradas: ${response}`);
 }
 
-export default {list, select, create, update, del};
+async function login(req, res) {
+    const email = req.params.email;
+    const senha = req.params.senha;
+    const response = await Cliente.findOne({where: {email, senha}});
+    res.json(response);
+}
+
+export default {list, select, create, update, del, login};

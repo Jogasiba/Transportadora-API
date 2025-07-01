@@ -30,10 +30,10 @@ export default banco.define(
             type: DataTypes.STRING(50),
             allowNull: false,
         },
-        email_cliente: {
-            type: DataTypes.STRING(100),
-            allowNull: false,
-        },
+        // email_cliente: {
+        //     type: DataTypes.STRING(100),
+        //     allowNull: false,
+        // },
         cliente_id: {
             type: DataTypes.INTEGER,
             allowNull: true,

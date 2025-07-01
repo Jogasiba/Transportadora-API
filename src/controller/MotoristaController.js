@@ -12,11 +12,13 @@ async function select(req, res) {
 }
 
 async function create(req, res) {
+    console.log(req.body)
     const response = await Motorista.create(req.body);
     res.json(response);
 }
 
 async function update(req, res) {
+    const nome = req.body.nome;
     const cpf = req.body.cpf;
     const cnh = req.body.cnh;
     const contato = req.body.contato;
@@ -25,8 +27,8 @@ async function update(req, res) {
 
     const motorista_id = req.params.id;
 
-    const response = await Carga.update(
-        {cpf, cnh, contato, endereco_id, caminhao_id},
+    const response = await Motorista.update(
+        {nome, cpf, cnh, contato, endereco_id, caminhao_id},
         {where: {motorista_id}}
     );
     res.json(`Linhas alteradas: ${response}`);

@@ -10,6 +10,10 @@ export default banco.define(
             allowNull: false,
             primaryKey: true,
         },
+        nome: {
+            type: DataTypes.STRING(50),
+            allowNull: false,
+        },
         cpf: {
             type: DataTypes.STRING(15),
             allowNull: false,

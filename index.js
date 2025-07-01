@@ -38,6 +38,7 @@ app.post('/cliente', cliente.create);
 app.get('/cliente/:id', cliente.select);
 app.put('/cliente/:id', cliente.update);
 app.delete('/cliente/:id', cliente.del);
+app.get('/cliente/:email/:senha', cliente.login);
 
 app.get('/despacho', despacho.list);
 app.post('/despacho', despacho.create);
