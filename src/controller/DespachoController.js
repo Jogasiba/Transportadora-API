@@ -26,7 +26,7 @@ async function update(req, res) {
 
     const despacho_id = req.params.id;
 
-    const response = await Carga.update(
+    const response = await Despacho.update(
         {dt_inic, dt_fim, status, cidade_despacho, carga_id, motorista_id},
         {where: {despacho_id}}
     );

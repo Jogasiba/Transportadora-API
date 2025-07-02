@@ -25,7 +25,7 @@ async function update(req, res) {
 
     const endereco_id = req.params.id;
 
-    const response = await Carga.update(
+    const response = await Endereco.update(
         {cep, rua, numero, cidade, complemento},
         {where: {endereco_id}}
     );

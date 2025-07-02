@@ -37,9 +37,8 @@ async function update(req, res) {
     const peso = req.body.peso;
     const tipo_carga = req.body.tipo_carga;
     const status = req.body.status;
-    // const email_cliente = req.body.email_cliente;
     const cliente_id = req.body.cliente_id;
-    const endereco_id = req.body.status;
+    const endereco_id = req.body.endereco_id;
 
     const carga_id = req.params.id;
 

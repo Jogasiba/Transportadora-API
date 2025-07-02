@@ -1,4 +1,3 @@
-import { where } from "sequelize";
 import Cliente from "../model/ClienteModel.js";
 
 async function list(req, res) {

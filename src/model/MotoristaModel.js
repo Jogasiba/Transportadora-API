@@ -28,11 +28,11 @@ export default banco.define(
         },
         endereco_id: {
             type: DataTypes.INTEGER,
-            allowNull: false,
+            allowNull: true,
         },
         caminhao_id: {
             type: DataTypes.INTEGER,
-            allowNull: false,
+            allowNull: true,
         }
     }
 );
