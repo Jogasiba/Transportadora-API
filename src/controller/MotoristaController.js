@@ -1,22 +1,26 @@
 import Motorista from "../model/MotoristaModel.js";
 
+// Função para listar todos os motorista
 async function list(req, res) {
     const response = await Motorista.findAll();
     res.json(response);
 }
 
+// Função para listar um motoristas em específico com o ID
 async function select(req, res) {
     const id = req.params.id;
     const response = await Motorista.findByPk(id);
     res.json(response);
 }
 
+// Função para inserir um novo motoristas
 async function create(req, res) {
     console.log(req.body)
     const response = await Motorista.create(req.body);
     res.json(response);
 }
 
+// Função para atualizar os dados de um motoristas
 async function update(req, res) {
     const nome = req.body.nome;
     const cpf = req.body.cpf;
@@ -34,6 +38,7 @@ async function update(req, res) {
     res.json(`Linhas alteradas: ${response}`);
 }
 
+// Função para deletar um motoristas
 async function del(req, res) {
     const motorista_id = req.params.id;
     

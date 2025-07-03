@@ -1,21 +1,25 @@
 import Cliente from "../model/ClienteModel.js";
 
+// Função para listar todos os clientes
 async function list(req, res) {
     const response = await Cliente.findAll();
     res.json(response);
 }
 
+// Função para listar um cliente em específico com o ID
 async function select(req, res) {
     const id = req.params.id;
     const response = await Cliente.findByPk(id);
     res.json(response);
 }
 
+// Função para inserir um novo cliente
 async function create(req, res) {
     const response = await Cliente.create(req.body);
     res.json(response);
 }
 
+// Função para atualizar os dados de um cliente
 async function update(req, res) {
     const nome = req.body.nome;
     const email = req.body.email;
@@ -31,6 +35,7 @@ async function update(req, res) {
     res.json(`Linhas alteradas: ${response}`);
 }
 
+// Função para deletar um cliente
 async function del(req, res) {
     const cliente_id = req.params.id;
     

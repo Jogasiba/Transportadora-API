@@ -1,6 +1,7 @@
 import { DataTypes } from "sequelize";
 import banco from "../../server.js";
 
+// Definindo tabela de Despachos
 export default banco.define(
     'despacho',
     {
