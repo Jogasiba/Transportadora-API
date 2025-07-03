@@ -2,35 +2,35 @@ import axios from "axios";
 
 // Calculo para calcular o frete
 async function calcularFrete(req, res) {
-    // Busca informações do Cep 1
+    // Busca informações do Cep 1 para usarmos em seguida
     const via1 = await fetch(`https://viacep.com.br/ws/${req.params.cep1}/json/`);
     const remetente = await via1.json();
     
-    // Busca informações do Cep 2
+    // Busca informações do Cep 2 para usarmos em seguida
     const via2 = await fetch(`https://viacep.com.br/ws/${req.params.cep2}/json/`);
     const destinatario = await via2.json();
 
-    // Guarda as principais informações em uma string
+    // Guarda as principais informações em uma string para enviar a mesma na API OpenCage
     const endereco1 = `${remetente.logradouro}, ${remetente.bairro}, ${remetente.localidade}, Brasil`;
     const endereco2 = `${destinatario.logradouro}, ${destinatario.bairro}, ${destinatario.localidade}, Brasil`;
 
-    // Criando urls para utilização da api OpenCageData
+    // Criando urls para utilização da api OpenCageData para buscar a geolocalização dos ceps
     const urlRemetente = `https://api.opencagedata.com/geocode/v1/json?q=${encodeURIComponent(endereco1)}&key=5ce09e25560a4a94829eaa719071dfd7&language=pt&countrycode=br`;
     const urlDestinatario = `https://api.opencagedata.com/geocode/v1/json?q=${encodeURIComponent(endereco2)}&key=5ce09e25560a4a94829eaa719071dfd7&language=pt&countrycode=br`;
 
     try {
-        // Utiliza a API para buscar geolocalização dos CEPs
+        // Utiliza a API para buscar geolocalização dos CEPs para pegarmos as informações
         const response1 = await axios.get(urlRemetente);
         const response2 = await axios.get(urlDestinatario);
 
-        // Guarda as informações em uma variável
+        // Guarda as informações em uma variável para extrair suas informações e validar se retornou algo da API
         const locRemetente = response1.data.results[0];
         const locDestinatario = response2.data.results[0];
 
-        // Se tiver localizado alguma informação do CEP, executa, se não, retorna null
+        // Se tiver localizado alguma informação do CEP, executa, se não, retorna null para evitar erros
         if (locRemetente && locDestinatario) {
 
-            // Guarda as latitudes e longitudes em variaveis
+            // Guarda as latitudes e longitudes em variaveis para realizarmos o calculo
             const lat1 = locRemetente.geometry.lat;
             const lon1 = locRemetente.geometry.lng;
             const lat2 = locDestinatario.geometry.lat;

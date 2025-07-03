@@ -129,13 +129,6 @@ http://localhost:{suaporta}/{rotadesejada}
 - *PUT*    `/endereco/:id` --> Atualiza endereco
 - *DELETE* `/endereco/:id` --> Remove endereco
 
-### 📍 Endereços
-- *GET*    `/endereco`     --> Lista todos os enderecos
-- *GET*    `/endereco/:id` --> Busca endereco por ID
-- *POST*   `/endereco`     --> Cria novo endereco
-- *PUT*    `/endereco/:id` --> Atualiza endereco
-- *DELETE* `/endereco/:id` --> Remove endereco
-
 ### ✅ Despacho
 - *GET*    `/despacho`     --> Lista todos os despachos
 - *GET*    `/despacho/:id` --> Busca despacho por ID

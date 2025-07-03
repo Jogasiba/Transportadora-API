@@ -1,13 +1,13 @@
 import Caminhao from "../model/CaminhaoModel.js";
 import axios from "axios";
 
-// Função para listar todos os caminhões
+// Função para listar todos os caminhões (usado para alimentar as tabelas no site)
 async function list(req, res) {
     const response = await Caminhao.findAll();
     res.json(response);
 }
 
-// Função para listar um caminhão em específico com o ID
+// Função para listar um caminhão em específico com o ID (usado para exibir dados atuais na hora de editar um registro)
 async function select(req, res) {
     const id = req.params.id;
 
@@ -19,7 +19,7 @@ async function select(req, res) {
     res.json(response);
 }
 
-// Função para inserir um novo caminhão
+// Função para inserir um novo caminhão (recebe um body com as informações do formulário para a inserção)
 async function create(req, res) {
     try{
         let motorista = req.body.motorista_id;
@@ -39,7 +39,8 @@ async function create(req, res) {
     }
 }
 
-// Função para atualizar os dados de um caminhão
+// Função para atualizar os dados de um caminhão (recebe um id do registro que queira alterar 
+// e um body com as informações do formulário para realizar a alteração do mesmo)
 async function update(req, res) {
     const placa = req.body.placa;
     const modelo = req.body.modelo;
@@ -57,7 +58,7 @@ async function update(req, res) {
     res.json(`Linhas alteradas: ${response}`);
 }
 
-// Função para deletar um caminhão
+// Função para deletar um caminhão (recebe um id do item da tabela que a pessoa apertar para deletar)
 async function del(req, res) {
     const caminhao_id = req.params.id;
     
