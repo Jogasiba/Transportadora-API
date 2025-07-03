@@ -1,25 +1,26 @@
 import Despacho from "../model/DespachoModel.js";
 
-// Função para listar todos os despachos
+// Função para listar todos os despachos (usado para alimentar as tabelas no site)
 async function list(req, res) {
     const response = await Despacho.findAll();
     res.json(response);
 }
 
-// Função para listar um despacho em específico com o ID
+// Função para listar um despacho em específico com o ID (usado para exibir dados atuais na hora de editar um registro)
 async function select(req, res) {
     const id = req.params.id;
     const response = await Despacho.findByPk(id);
     res.json(response);
 }
 
-// Função para inserir um novo despacho
+// Função para inserir um novo despacho (recebe um body com as informações do formulário para a inserção)
 async function create(req, res) {
     const response = await Despacho.create(req.body);
     res.json(response);
 }
 
-// Função para atualizar os dados de um despacho
+// Função para atualizar os dados de um despacho (recebe um id do registro que queira alterar 
+// e um body com as informações do formulário para realizar a alteração do mesmo)
 async function update(req, res) {
     const dt_inic = req.body.dt_inic;
     const dt_fim = req.body.dt_fim;
@@ -37,7 +38,7 @@ async function update(req, res) {
     res.json(`Linhas alteradas: ${response}`);
 }
 
-// Função para deletar um despacho
+// Função para deletar um despacho (recebe um id do item da tabela que a pessoa apertar para deletar)
 async function del(req, res) {
     const despacho_id = req.params.id;
     
